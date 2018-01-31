@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 빈(자바 클래스)관리 : 스프링 프레임 워크에서 관리 받고자 하는 클래스를 등록 -->
+	<bean class="com.kosta.j1101.My" id="m1">
+		<!-- My m1 = new My(); -->
+	</bean>
+	
+	<bean class="com.kosta.j1101.My" id="m2">
+		<constructor-arg>
+			<bean class="com.kosta.j1101.B"></bean>
+		</constructor-arg>
+	</bean>
+	
+	<bean class="com.kosta.j1101.My" id="m3">
+		<property name="obj" ref="c">
+			<!-- <bean class="com.kosta.j1011.C"></bean> -->
+		</property>
+	</bean>
+	
+	<bean class="com.kosta.j1011.C" id="c"></bean>
+</beans>
